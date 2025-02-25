@@ -5,7 +5,7 @@ import * as yup from 'yup'
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url)
   const take = Number(searchParams.get('take') ?? '10')
-  const skip = Number(searchParams.get('skip') ?? '10')
+  const skip = Number(searchParams.get('skip') ?? '0')
 
   if (isNaN(take)) {
     return NextResponse.json(
@@ -22,6 +22,8 @@ export async function GET(request: Request) {
   }
 
   const todos = await prisma.todo.findMany({ take, skip })
+  console.log(todos)
+
   return NextResponse.json(todos)
 }
 
