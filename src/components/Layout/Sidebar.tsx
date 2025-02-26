@@ -1,12 +1,13 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-import logo from '../../public/next.svg'
-import foto from '../../public/1000052057.jpg'
+
 import { CiLogout } from 'react-icons/ci'
 import {
+  IoBasketOutline,
   IoCalendarOutline,
   IoCheckboxOutline,
+  IoCodeWorkingOutline,
   IoListOutline,
 } from 'react-icons/io5'
 import { SideItembar } from './SideItembar'
@@ -22,10 +23,20 @@ const menuItems = [
     title: 'Rest TODOS',
     path: '/dashboard/rest-todos',
   },
+  // {
+  //   icon: <IoListOutline />,
+  //   title: 'Server Actions',
+  //   path: '/dashboard/server-todos',
+  // },
   {
-    icon: <IoListOutline />,
-    title: 'Server Actions',
-    path: '/dashboard/server-todos',
+    icon: <IoCodeWorkingOutline />,
+    title: 'Cookies',
+    path: '/dashboard/cookies',
+  },
+  {
+    icon: <IoBasketOutline />,
+    title: 'Products',
+    path: '/dashboard/products',
   },
 ]
 export const Sidebar = () => {
@@ -36,7 +47,7 @@ export const Sidebar = () => {
           <div className="-mx-6 px-6 py-4">
             <Link href="#" title="home">
               <Image
-                src={logo}
+                src="/next.svg"
                 className="w-32"
                 alt="tailus logo"
                 width={100}
@@ -47,7 +58,7 @@ export const Sidebar = () => {
 
           <div className="mt-8 text-center">
             <Image
-              src={foto}
+              src="/1000052057.jpg"
               alt=""
               className="w-10 h-10 m-auto rounded-full object-cover lg:w-28 lg:h-28"
               width={100}
